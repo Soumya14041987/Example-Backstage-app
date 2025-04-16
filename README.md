@@ -57,3 +57,49 @@ docker run -p 7007:7007 backstage-app
 
 yarn docker:build
 yarn docker:up
+
+![image](https://github.com/user-attachments/assets/5c9a8adc-b437-40d2-ac51-8f0cd8b300fc)
+
+
+## Configuration of Github Authentication using OAuth :-
+
+Go to GitHub Developer Settings > OAuth Apps.
+
+Register a new app:
+
+Homepage URL: http://localhost:3000
+
+Authorization callback URL: http://localhost:7007/api/auth/github/handler/frame
+
+Copy the Client ID and Client Secret.
+
+In your Backstage app:
+
+# app-config.local.yaml
+auth:
+  environment: development
+  providers:
+    github:
+      development:
+        clientId: ${AUTH_GITHUB_CLIENT_ID}
+        clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
+
+# Also, set these environment variables:
+export AUTH_GITHUB_CLIENT_ID=your-client-id
+export AUTH_GITHUB_CLIENT_SECRET=your-client-secret
+
+# If you're using Github secrets then modify the app-config.yaml by following variables 
+
+env:
+  GITHUB_CLIENT_ID: ${{ secrets.GITHUB_CLIENT_ID }}
+  GITHUB_CLIENT_SECRET: ${{ secrets.GITHUB_CLIENT_SECRET }}
+
+  ## Then execute the below command to start the Backstage backend 
+
+  yarn start 
+
+  
+
+
+
+

@@ -58,7 +58,6 @@ docker run -p 7007:7007 backstage-app
 yarn docker:build
 yarn docker:up
 
-![image](https://github.com/user-attachments/assets/5c9a8adc-b437-40d2-ac51-8f0cd8b300fc)
 
 
 ## Configuration of Github Authentication using OAuth :-
@@ -84,11 +83,12 @@ auth:
         clientId: ${AUTH_GITHUB_CLIENT_ID}
         clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
 
-# Also, set these environment variables:
+# Also, set these environment variables:-
+
 export AUTH_GITHUB_CLIENT_ID=your-client-id
 export AUTH_GITHUB_CLIENT_SECRET=your-client-secret
 
-# If you're using Github secrets then modify the app-config.yaml by following variables 
+# If you're using Github secrets then modify the app-config.yaml by following variables :- 
 
 env:
   GITHUB_CLIENT_ID: ${{ secrets.GITHUB_CLIENT_ID }}
@@ -99,6 +99,7 @@ env:
   yarn start 
 
   
+![image](https://github.com/user-attachments/assets/5c9a8adc-b437-40d2-ac51-8f0cd8b300fc)
 
 
 
